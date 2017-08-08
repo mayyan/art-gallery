@@ -7,5 +7,10 @@
   <body>
     <h1>{title}</h1>
     <p>Welcome to {title}</p>
+
+    <img src='/images/IMG_3046.JPG' width=300>
+    <img src='/images/IMG_3047.JPG' width=300>
+
+    <script src="/javascripts/index_bundle.js"></script>
   </body>
 </html>

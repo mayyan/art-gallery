@@ -1,18 +1,22 @@
 {
-  "name": "myapp",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "adaro": "~1.0.4",
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "less-middleware": "~2.2.0",
-    "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
-  }
+    "name": "myapp",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "webpack",
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "adaro": "~1.0.4",
+        "body-parser": "~1.17.1",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.3",
+        "express": "~4.15.2",
+        "less-middleware": "~2.2.0",
+        "morgan": "~1.8.1",
+        "serve-favicon": "~2.4.2"
+    },
+    "devDependencies": {
+        "webpack": "^3.5.1"
+    }
 }
