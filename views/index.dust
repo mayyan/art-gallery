@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{title}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS are loaded by index_bundle.js via webpack module-->
   </head>
   <body>
     <h1>{title}</h1>
     <p>Welcome to {title}</p>
 
-    <img src='/images/IMG_3046.JPG' width=300>
-    <img src='/images/IMG_3047.JPG' width=300>
+    <div class="grid">
+    	<div class="grid-item"><img src='/images/IMG_3046.JPG'></div>
+  		<div class="grid-item"><img src='/images/IMG_3047.JPG'></div>
+    </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="/javascripts/index_bundle.js"></script>
   </body>
 </html>

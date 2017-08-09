@@ -23,7 +23,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(lessMiddleware(path.join(__dirname, 'src')));
+
+// commented out below due to using webpack to compile less files at build time
+// app.use(lessMiddleware(path.join(__dirname, 'src')));
+
 app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, 'dist')));
 
