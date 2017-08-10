@@ -2,11 +2,12 @@
 
 ## Technical Highlights
 1. App was seeded using [express-generator](https://expressjs.com/en/starter/generator.html)
-2. Webpack generated js bundle.
-3. [Masonry](https://masonry.desandro.com/) layout
-4. normalize.css
-5. Load css/less via js. Css/less dependencies are also bundled in js bundle.
-6. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) 
+1. [Webpack](https://webpack.js.org) generated js bundle.
+1. Manage external dependencies in webpack
+1. [Masonry](https://masonry.desandro.com/) layout
+1. [normalize.css](https://necolas.github.io/normalize.css/)
+1. Load CSS/LESS via js. CSS/LESS dependencies are also bundled in js bundle.
+1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) 
 
 
 ## Install dependencies
@@ -24,7 +25,8 @@ Run `npm run watch` from the command line to see that webpack compiles your code
 
 Or, run `npm run watch &` in the background.
 
-## Watch with HMR (Hot Module Replacement)
+## Watch with HMR 
+HMR = Hot Module Replacement
 
 Using *webpack-hot-middleware*, app does not need webpack running at watch mode. Simply run the app, changes automatically trigger browser reload.
 
