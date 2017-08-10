@@ -1,7 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/javascripts/index.js',
+    entry: ['./src/javascripts/index.js', 'webpack-hot-middleware/client'],
     output: {
         filename: 'index_bundle.js',
         path: path.resolve(__dirname, 'dist/javascripts')
@@ -11,6 +12,12 @@ module.exports = {
         // Masonry: 'Masonry',
         // imagesLoaded: 'imagesLoaded'
     },
+    plugins: [
+        // OccurenceOrderPlugin is needed for webpack 1.x only
+        // new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    ],
     module: {
         rules: [{
             test: /\.css$/,

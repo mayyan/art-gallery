@@ -13,6 +13,7 @@
     <div class="grid">
     	<div class="grid-item"><img src='/images/IMG_3046.JPG'></div>
   		<div class="grid-item"><img src='/images/IMG_3047.JPG'></div>
+        <div class="grid-item"><img src='/images/IMG_2980.JPG'></div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

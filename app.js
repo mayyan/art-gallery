@@ -4,13 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var lessMiddleware = require('less-middleware');
+// var lessMiddleware = require('less-middleware');
 var adaro = require('adaro');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// Webpack hot reloading
+(function() {
+    var webpack = require('webpack');
+    var webpackConfig = require('./webpack.config');
+    var compiler = webpack(webpackConfig);
+
+    app.use(require("webpack-dev-middleware")(compiler, {
+        noInfo: true, publicPath: webpackConfig.output.publicPath
+    }));
+    app.use(require("webpack-hot-middleware")(compiler, {
+        log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
+    }));
+})();
 
 // view engine setup
 app.engine('dust', adaro.dust());
