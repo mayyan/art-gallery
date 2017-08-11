@@ -9,7 +9,6 @@
 1. Load CSS/LESS via js. CSS/LESS dependencies are also bundled in js bundle.
 1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) 
 
-
 ## Install dependencies
     $ cd myapp && npm install
 
@@ -30,4 +29,8 @@ HMR = Hot Module Replacement
 
 Using *webpack-hot-middleware*, app does not need webpack running at watch mode. Simply run the app, changes automatically trigger browser reload.
 
+## Minify images
+[imagemin-cli](https://github.com/imagemin/imagemin-cli)
 
+    $ cd src/images_orig
+    $ imagemin * --out-dir=../images

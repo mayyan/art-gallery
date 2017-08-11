@@ -2,9 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: ['./src/javascripts/index.js', 'webpack-hot-middleware/client'],
+    entry: {
+        gallery: ['./src/javascripts/gallery.js', 'webpack-hot-middleware/client']
+    },
     output: {
-        filename: 'index_bundle.js',
+        filename: '[name]_bundle.js',
         path: path.resolve(__dirname, 'dist/javascripts')
     },
     externals: {
