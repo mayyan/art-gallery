@@ -3,7 +3,8 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        gallery: ['./src/javascripts/gallery.js', 'webpack-hot-middleware/client']
+        gallery: ['./src/javascripts/gallery.js', 'webpack-hot-middleware/client'],
+        upload: ['./src/javascripts/upload.js', 'webpack-hot-middleware/client']
     },
     output: {
         filename: '[name]_bundle.js',

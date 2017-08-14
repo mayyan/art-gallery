@@ -9,6 +9,7 @@ var adaro = require('adaro');
 
 var users = require('./routes/users');
 var gallery = require('./routes/gallery');
+var upload = require('./routes/upload');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/', gallery);
+app.use('/upload', upload);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

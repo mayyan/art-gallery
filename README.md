@@ -4,8 +4,8 @@
 1. App was seeded using [express-generator](https://expressjs.com/en/starter/generator.html)
 1. [Webpack](https://webpack.js.org) generated js bundle.
 1. Manage external dependencies in webpack
+1. [Bootstrap](https://getbootstrap.com/)
 1. [Masonry](https://masonry.desandro.com/) layout
-1. [normalize.css](https://necolas.github.io/normalize.css/)
 1. Load CSS/LESS via js. CSS/LESS dependencies are also bundled in js bundle.
 1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) 
 
