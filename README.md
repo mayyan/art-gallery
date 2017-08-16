@@ -7,7 +7,8 @@
 1. [Bootstrap](https://getbootstrap.com/)
 1. [Masonry](https://masonry.desandro.com/) layout
 1. Load CSS/LESS via js. CSS/LESS dependencies are also bundled in js bundle.
-1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) 
+1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware)
+1. [expressjs-fileuplaod](https://github.com/richardgirges/express-fileupload)
 
 ## Install dependencies
     $ cd myapp && npm install
@@ -34,3 +35,12 @@ Using *webpack-hot-middleware*, app does not need webpack running at watch mode.
 
     $ cd src/images_orig
     $ imagemin * --out-dir=../images
+
+TODO: automate upload and minify
+
+## Debug
+Follow step in [Paul Irish's blog](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27)
+
+    $ npm run debug
+    $ Open `about:inspect` in Chrome
+    $ Click the Open dedicated DevTools for Node link.
