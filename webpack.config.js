@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+    devtool: 'inline-source-map',
     entry: {
         gallery: ['./src/javascripts/gallery.js', 'webpack-hot-middleware/client'],
         upload: ['./src/javascripts/upload.js', 'webpack-hot-middleware/client']

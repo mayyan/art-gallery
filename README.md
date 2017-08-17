@@ -40,9 +40,13 @@ Using *webpack-hot-middleware*, app does not need webpack running at watch mode.
 
 TODO: automate upload and minify
 
-## Debug
+## Debug Server-side
 Follow step in [Paul Irish's blog](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27)
 
     $ npm run debug
     $ Open `about:inspect` in Chrome
     $ Click the Open dedicated DevTools for Node link.
+    
+## Debug Clint-side
+Sourcemap is enabled in webpack by `devtool: 'inline-source-map'`.
+<img src="https://raw.githubusercontent.com/mayyan/myapp/master/src/images/debigging_client_side.png" width=430>
