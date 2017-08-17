@@ -70,11 +70,7 @@
                 </p>
             </div>
 
-            <div class="grid">
-                <div class="grid-item"><img src='/images/IMG_3046.JPG'></div>
-                <div class="grid-item"><img src='/images/IMG_3047.JPG'></div>
-                <div class="grid-item"><img src='/images/IMG_2980.JPG'></div>
-            </div>
+            <div id="root"></div>
 
         </div> <!-- /container -->
 

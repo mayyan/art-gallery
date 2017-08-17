@@ -5,6 +5,15 @@ import '../stylesheets/ie10-viewport-bug-workaround.css';
 
 import '../stylesheets/gallery_style.less';
 
+import React from 'react';
+import Gallery from './components/Gallery';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+    <Gallery name="May" />,
+    document.getElementById('root')
+);
+
 (function() {
 
     var grid = $('.grid').masonry({

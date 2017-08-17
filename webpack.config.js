@@ -28,6 +28,12 @@ module.exports = {
         }, {
             test: /\.less$/,
             use: ['style-loader', 'css-loader', 'less-loader']
+        },{
+            test: /\.js$/,
+            include: [
+                path.resolve(__dirname, './src', 'javascripts'),
+            ],
+            use: ['babel-loader']
         }]
     }
 };
