@@ -49,4 +49,5 @@ Follow step in [Paul Irish's blog](https://medium.com/@paul_irish/debugging-node
     
 ## Debug Clint-side
 Sourcemap is enabled in webpack by `devtool: 'inline-source-map'`.
-<img src="https://raw.githubusercontent.com/mayyan/myapp/master/src/images/debigging_client_side.png" width=430>
+<img src="https://raw.githubusercontent.com/mayyan/myapp/master/src/images/debugging_client_side.png" width=430>
+
