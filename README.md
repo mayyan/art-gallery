@@ -4,11 +4,13 @@
 1. App was seeded using [express-generator](https://expressjs.com/en/starter/generator.html)
 1. [Webpack](https://webpack.js.org) generated js bundle.
 1. Manage external dependencies in webpack
-1. [Bootstrap](https://getbootstrap.com/)
-1. [Masonry](https://masonry.desandro.com/) layout
 1. Load CSS/LESS via js. CSS/LESS dependencies are also bundled in js bundle.
 1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware)
 1. [expressjs-fileuplaod](https://github.com/richardgirges/express-fileupload)
+1. React.js components, JSX
+1. Dust.js page-level templates
+1. [Bootstrap](https://getbootstrap.com/)
+1. [Masonry](https://masonry.desandro.com/) layout
 
 ## Install dependencies
     $ cd myapp && npm install
