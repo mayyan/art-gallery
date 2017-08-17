@@ -47,7 +47,7 @@ Follow step in [Paul Irish's blog](https://medium.com/@paul_irish/debugging-node
     $ Open `about:inspect` in Chrome
     $ Click the Open dedicated DevTools for Node link.
     
-## Debug Clint-side
+## Debug Client-side
 Sourcemap is enabled in webpack by `devtool: 'inline-source-map'`.
 <img src="https://raw.githubusercontent.com/mayyan/myapp/master/src/images/debugging_client_side.png" width=430>
 
