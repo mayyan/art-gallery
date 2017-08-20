@@ -59,21 +59,9 @@
         </nav>
 
         <div class="container">
+            <div id="uploadForm"></div>
 
-            <form ref='uploadForm' 
-                    id='uploadForm' 
-                    action='/upload' 
-                    method='post' 
-                    encType="multipart/form-data">
-                <div class="form-group">
-                    <label for="inputFile">File input</label>
-                    <input type="file" id="inputFile" name="inputFile">
-                    <p class="help-block">png, jpg, ...</p>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-
-            <div class="proview">
+            <div class="preview">
                 
             </div>
 

@@ -1,13 +1,13 @@
 'use strict';
 
 import React from 'react';
-import ImagesData from "../../../data/images.data.js";
 
 class Gallery extends React.Component {
 
     render() {
-        const imageItems = ImagesData.map((imageItem, index) =>
-            <div className="grid-item" key={index}><img src={imageItem.fileName} /></div>
+        let ImagesData = require("../../../data/images.data.js");
+        let imageItems = ImagesData.map((imageItem, index) =>
+            <div className="grid-item" key={index}><img src={imageItem.imagePath} /></div>
         );
 
         return (

@@ -1,15 +1,24 @@
-'use strict';
 
-module.exports = [{
-    fileName: "/images/IMG_3046.JPG",
-    creatDate: "2017-01-01",
-    category: "academic"
-}, {
-    fileName: "/images/IMG_3047.JPG",
-    creatDate: "2016-01-01",
-    category: "sketch"
-}, {
-    fileName: "/images/IMG_2980.JPG",
-    creatDate: "2016-01-01",
-    category: "comic"
-}];
+'use strict';
+module.exports = [
+    {
+        "imagePath": "/images/IMG_3046.JPG",
+        "imageDate": "2017-01-01",
+        "imageCategory": "academic"
+    },
+    {
+        "imagePath": "/images/IMG_3047.JPG",
+        "imageDate": "2016-01-01",
+        "imageCategory": "sketch"
+    },
+    {
+        "imagePath": "/images/IMG_2980.JPG",
+        "imageDate": "2015-01-01",
+        "imageCategory": "comic"
+    },
+    {
+        "imagePath": "/images_orig/IMG_2842.JPG",
+        "imageDate": "2017-08-17",
+        "imageCategory": "academic"
+    }
+];

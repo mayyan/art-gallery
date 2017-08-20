@@ -24,8 +24,10 @@
         "express": "~4.15.2",
         "express-fileupload": "^0.1.4",
         "less-middleware": "~2.2.0",
+        "moment": "^2.18.1",
         "morgan": "~1.8.1",
         "react": "^15.6.1",
+        "react-datepicker": "^0.53.0",
         "react-dom": "^15.6.1",
         "serve-favicon": "~2.4.2"
     },

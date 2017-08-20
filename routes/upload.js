@@ -31,7 +31,23 @@ router.post('/', function(req, res, next) {
         // so that when a same filename came in, .mv will report error.
         fs.chmod(fileDest, '444');
 
-        res.send('File uploaded!');
+        // Write to data file
+        let imagesData = require("../src/data/images.data.js");
+        imagesData.push({
+            imagePath: '/images_orig/' + req.files.inputFile.name,
+            imageDate: req.body.imageDate,
+            imageCategory: req.body.imageCategory
+        });
+        let content = `'use strict';
+module.exports = ` + JSON.stringify(imagesData, null, 4) + ";";
+        let dataFileDest = path.join(__dirname, '..', 'src', 'data', "images.data.js");
+        fs.writeFile(dataFileDest, content, 'utf8', function (err) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+        }); 
+
+        // res.send('File uploaded!');
         
     });
 });
