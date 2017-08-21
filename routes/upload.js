@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
     let fileDest = path.join(__dirname, '..', 'src', 'images_orig', req.files.inputFile.name);
     inputFile.mv(fileDest, function(err) {
         if (err) {
-            return res.status(500).send(err);
+            return res.status(500).send({msg: err});
         }
 
         // to prevent override, change file permission to read-only.
@@ -43,11 +43,10 @@ module.exports = ` + JSON.stringify(imagesData, null, 4) + ";";
         let dataFileDest = path.join(__dirname, '..', 'src', 'data', "images.data.js");
         fs.writeFile(dataFileDest, content, 'utf8', function (err) {
             if (err) {
-                return res.status(500).send(err);
+                return res.status(500).send({msg: err});
             }
+            return res.send({msg: 'File uploaded!'});
         }); 
-
-        // res.send('File uploaded!');
         
     });
 });

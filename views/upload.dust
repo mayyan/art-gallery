@@ -60,11 +60,6 @@
 
         <div class="container">
             <div id="uploadForm"></div>
-
-            <div class="preview">
-                
-            </div>
-
         </div> <!-- /container -->
 
         <!-- Placed at the end of the document so the pages load faster -->

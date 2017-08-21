@@ -3,10 +3,28 @@
 import React from 'react';
 
 class Gallery extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        let imagesData = require("../../../data/images.data.js");
+        this.setState({imagesData: imagesData});
+    }
+
+    componentWillUnmount() {
+    }
 
     render() {
-        let ImagesData = require("../../../data/images.data.js");
-        let imageItems = ImagesData.map((imageItem, index) =>
+        if (!this.state) {
+            return (
+                <div>
+                    loading...
+                </div>
+            );
+        }
+
+        let imageItems = this.state.imagesData.map((imageItem, index) =>
             <div className="grid-item" key={index}><img src={imageItem.imagePath} /></div>
         );
 

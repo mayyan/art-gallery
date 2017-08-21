@@ -1,4 +1,3 @@
-
 'use strict';
 module.exports = [
     {
@@ -15,10 +14,5 @@ module.exports = [
         "imagePath": "/images/IMG_2980.JPG",
         "imageDate": "2015-01-01",
         "imageCategory": "comic"
-    },
-    {
-        "imagePath": "/images_orig/IMG_2842.JPG",
-        "imageDate": "2017-08-17",
-        "imageCategory": "academic"
     }
 ];
