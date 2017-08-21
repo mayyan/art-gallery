@@ -7,8 +7,8 @@
 1. Load CSS/LESS via js. CSS/LESS dependencies are also bundled in js bundle.
 1. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware)
 1. [expressjs-fileuplaod](https://github.com/richardgirges/express-fileupload)
-1. React.js components, JSX
-1. Dust.js page-level templates
+1. [React.js](https://facebook.github.io/react/) components, JSX
+1. [Dust.js](http://www.dustjs.com/) page-level templates
 1. [Bootstrap](https://getbootstrap.com/)
 1. [Masonry](https://masonry.desandro.com/) layout
 
