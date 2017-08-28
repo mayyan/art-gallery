@@ -8,8 +8,7 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        // let imagesData = require("../../../data/images.data.js");
-        fetch('/data/images.data.js')
+        fetch('/services/images/')
         .then(response => {
             return response.json();
         })

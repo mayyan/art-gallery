@@ -67,7 +67,7 @@ class UploadForm extends React.Component {
         formData.append('inputFile', inputFile);
 
         $.ajax({
-            url: '/upload',
+            url: '/services/images/',
             dataType: 'json',
             cache: false,
             method: 'post',

@@ -13,5 +13,15 @@
         "imagePath": "/images/IMG_2980.JPG",
         "imageDate": "2015-01-01",
         "imageCategory": "comic"
+    },
+    {
+        "imagePath": "/images_orig/IMG_2842.JPG",
+        "imageDate": "2017-08-28",
+        "imageCategory": "other"
+    },
+    {
+        "imagePath": "/images_orig/IMG_2938.JPG",
+        "imageDate": "2017-08-28",
+        "imageCategory": "other"
     }
 ]
