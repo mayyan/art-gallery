@@ -1,5 +1,4 @@
-'use strict';
-module.exports = [
+[
     {
         "imagePath": "/images/IMG_3046.JPG",
         "imageDate": "2017-01-01",
@@ -15,4 +14,4 @@ module.exports = [
         "imageDate": "2015-01-01",
         "imageCategory": "comic"
     }
-];
+]

@@ -8,8 +8,31 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        let imagesData = require("../../../data/images.data.js");
-        this.setState({imagesData: imagesData});
+        // let imagesData = require("../../../data/images.data.js");
+        fetch('/data/images.data.js')
+        .then(response => {
+            return response.json();
+        })
+        .then(json => {
+            this.setState({imagesData: json});
+
+            // apply masonry layout
+            var grid = $('.grid').masonry({
+                // options
+                "itemSelector": ".grid-item", 
+                "columnWidth": 300,
+                "gutter": 10
+            });
+
+            // layout Masonry after each image loads
+            grid.imagesLoaded().progress( function() {
+                grid.masonry('layout');
+            });
+        })
+        .catch((error) => {
+            // AHHHH! An Error!
+            console.log(error);
+        });
     }
 
     componentWillUnmount() {

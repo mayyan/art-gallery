@@ -32,21 +32,28 @@ router.post('/', function(req, res, next) {
         fs.chmod(fileDest, '444');
 
         // Write to data file
-        let imagesData = require("../src/data/images.data.js");
-        imagesData.push({
-            imagePath: '/images_orig/' + req.files.inputFile.name,
-            imageDate: req.body.imageDate,
-            imageCategory: req.body.imageCategory
-        });
-        let content = `'use strict';
-module.exports = ` + JSON.stringify(imagesData, null, 4) + ";";
-        let dataFileDest = path.join(__dirname, '..', 'src', 'data', "images.data.js");
-        fs.writeFile(dataFileDest, content, 'utf8', function (err) {
+        // let imagesData = require("../src/data/images.data.js");
+        fs.readFile(path.join(__dirname, '..', 'src', 'data', 'images.data.js'), 'utf8', (err, content) => {
             if (err) {
-                return res.status(500).send({msg: err});
+                throw err;
             }
-            return res.send({msg: 'File uploaded!'});
-        }); 
+            console.log(content);
+            let imagesData = JSON.parse(content);
+            imagesData.push({
+                imagePath: '/images_orig/' + req.files.inputFile.name,
+                imageDate: req.body.imageDate,
+                imageCategory: req.body.imageCategory
+            });
+            let contentNew = JSON.stringify(imagesData, null, 4);
+            let dataFileDest = path.join(__dirname, '..', 'src', 'data', "images.data.js");
+            fs.writeFile(dataFileDest, contentNew, 'utf8', function (err) {
+                if (err) {
+                    return res.status(500).send({msg: err});
+                }
+                return res.send({msg: 'File uploaded!'});
+            }); 
+        });
+        
         
     });
 });

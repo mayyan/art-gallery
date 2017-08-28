@@ -20,6 +20,7 @@
 
 ## Run the app
     $ DEBUG=myapp:* npm start
+Open browser url: http://localhost:3000/
 
 ## Watch
     $ npm run watch
