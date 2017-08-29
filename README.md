@@ -1,4 +1,7 @@
 # myapp
+Art Gallery - An experimental Node.js/React.js web application.
+
+I'm using it to practice a few things I'm learnings.
 
 ## Technical Highlights
 1. App was seeded using [express-generator](https://expressjs.com/en/starter/generator.html)
@@ -11,6 +14,9 @@
 1. [Dust.js](http://www.dustjs.com/) page-level templates
 1. [Bootstrap](https://getbootstrap.com/)
 1. [Masonry](https://masonry.desandro.com/) layout
+1. [Material Icon](https://material.io/icons/)
+1. [Basic Authentication](https://www.npmjs.com/package/express-basic-auth) for administrative interactions: upload, remove
+1. [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of $.ajax
 
 ## Install dependencies
     $ cd myapp && npm install
