@@ -1,10 +1,15 @@
 'use strict';
 
 import React from 'react';
+import mui from 'material-ui';
+import DeleteIcon from 'material-ui-icons/Delete';
+import ModeEditIcon from 'material-ui-icons/ModeEdit';
+
 
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
+        this.handleDeleteButtonClicked = this.handleDeleteButtonClicked.bind(this);
     }
 
     componentDidMount() {
@@ -37,6 +42,20 @@ class Gallery extends React.Component {
     componentWillUnmount() {
     }
 
+    handleDeleteButtonClicked(e, imageItem) {
+        if (!confirm("Are you sure to delete?")) {
+            return;
+        }
+        
+        fetch(`/services/images/${imageItem.key}`, {
+            method: 'delete',
+        })
+        .catch((error) => {
+            // AHHHH! An Error!
+            console.log(error);
+        });
+    }
+
     render() {
         if (!this.state) {
             return (
@@ -47,7 +66,13 @@ class Gallery extends React.Component {
         }
 
         let imageItems = this.state.imagesData.map((imageItem, index) =>
-            <div className="grid-item" key={index}><img src={imageItem.imagePath} /></div>
+            <div className="grid-item" key={imageItem.key} >
+                <img src={imageItem.imagePath} />
+                <div className='action-panel'>
+                    <button className='btn-delete' onClick={(e) => this.handleDeleteButtonClicked(e, imageItem)}><DeleteIcon /></button>
+                    <button className='btn-edit'><ModeEditIcon /></button>
+                </div>
+            </div>
         );
 
         return (

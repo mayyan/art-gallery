@@ -50,6 +50,7 @@ router.post('/images', function(req, res, next) {
             console.log(content);
             let imagesData = JSON.parse(content);
             imagesData.push({
+                key: req.files.inputFile.name,
                 imagePath: '/images_orig/' + req.files.inputFile.name,
                 imageDate: req.body.imageDate,
                 imageCategory: req.body.imageCategory
@@ -65,6 +66,10 @@ router.post('/images', function(req, res, next) {
         
         
     });
+});
+
+router.delete('/images/:key', function(req, res, next, key) {
+    console.log(key);
 });
 
 router.put('/images', function(req, res, next) {

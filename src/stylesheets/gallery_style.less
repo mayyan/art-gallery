@@ -5,9 +5,27 @@ body {
 
 .grid-item {
     width: 300px;
+    
     margin-bottom: 10px;
 
     img {
         width: 300px;
+    }
+    .action-panel {
+        visibility: hidden;
+        opacity: 0.9;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &:hover .action-panel {
+        visibility: visible;
+    }
+    &:hover .btn-delete,
+    &:hover .btn-edit {
+        border: none;
+        padding: 10px;
+        background: #fff;
+        display: block;
     }
 }
