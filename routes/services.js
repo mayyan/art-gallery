@@ -4,7 +4,14 @@ const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const path = require('path');
 
-router.use(fileUpload());
+/* apply fileUpload middleware ONLY to image POST request */
+router.use('/images', function(req, res, next) {
+    if (req.method == 'POST') {
+        (fileUpload()(req, res, next));
+    } else {
+        next();
+    }
+});
 
 /* GET image listing. */
 router.get('/images', function(req, res, next) {
@@ -21,8 +28,9 @@ router.get('/images', function(req, res, next) {
 
 /* Add new image. */
 router.post('/images', function(req, res, next) {
+
     if (!req.files) {
-        return res.status(400).send('No files were uploaded.');
+        return res.status(400).send({msg: 'No files were uploaded.'});
     }
 
     console.log(req.files.inputFile); // the uploaded file object
@@ -41,7 +49,6 @@ router.post('/images', function(req, res, next) {
         fs.chmod(fileDest, '444');
 
         // Write to data file
-        // let imagesData = require("../src/data/images.data.js");
         let dataFilePath = path.join(__dirname, '..', 'data', 'images.data.js');
         fs.readFile(dataFilePath, 'utf8', (err, content) => {
             if (err) {
@@ -63,13 +70,15 @@ router.post('/images', function(req, res, next) {
                 return res.send({msg: 'File uploaded!'});
             }); 
         });
-        
-        
     });
 });
 
-router.delete('/images/:key', function(req, res, next, key) {
+router.delete('/images/:key', function(req, res, next) {
+    var key = req.params.key;
+
     console.log(key);
+
+    return res.status(200).send();
 });
 
 router.put('/images', function(req, res, next) {

@@ -43,7 +43,7 @@ class Gallery extends React.Component {
     }
 
     handleDeleteButtonClicked(e, imageItem) {
-        if (!confirm("Are you sure to delete?")) {
+        if (!confirm(`Are you sure to delete ${imageItem.key}?`)) {
             return;
         }
         
