@@ -3,6 +3,7 @@ var router = express.Router();
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const path = require('path');
+const dataFilePath = path.join(__dirname, '..', 'data', 'images.data.js');
 
 /* apply fileUpload middleware ONLY to image POST request */
 router.use('/images', function(req, res, next) {
@@ -17,7 +18,7 @@ router.use('/images', function(req, res, next) {
 router.get('/images', function(req, res, next) {
     res.setHeader('Content-Type', 'application/json');
 
-    fs.readFile(path.join(__dirname, '..', 'data', 'images.data.js'), 'utf8', (err, content) => {
+    fs.readFile(dataFilePath, 'utf8', (err, content) => {
         if (err) {
             return res.status(500).send({msg: err});;
         }
@@ -49,7 +50,6 @@ router.post('/images', function(req, res, next) {
         fs.chmod(fileDest, '444');
 
         // Write to data file
-        let dataFilePath = path.join(__dirname, '..', 'data', 'images.data.js');
         fs.readFile(dataFilePath, 'utf8', (err, content) => {
             if (err) {
                 throw err;
@@ -73,12 +73,45 @@ router.post('/images', function(req, res, next) {
     });
 });
 
+/* Delete an image */
 router.delete('/images/:key', function(req, res, next) {
     var key = req.params.key;
 
-    console.log(key);
+    res.setHeader('Content-Type', 'application/json');
 
-    return res.status(200).send();
+    var needToDelete = function(item) {
+        return item.key == key; 
+    }
+
+    fs.readFile(dataFilePath, 'utf8', (err, content) => {
+        if (err) {
+            throw err;
+        }
+        let imagesData = JSON.parse(content);
+        let indexToBeDeleted = imagesData.findIndex(needToDelete)
+        let itemToBeDeleted = imagesData.splice(indexToBeDeleted, 1); // imagesData is updated too
+        let imagePath = '';
+        if (itemToBeDeleted.length > 0) {
+            imagePath = path.join(__dirname, '..', 'src', itemToBeDeleted[0].imagePath);
+
+            /* delete the image file */
+            fs.unlink(imagePath, function(err) {
+                if (err) {
+                    throw err;
+                }
+                // update data file
+                let contentNew = JSON.stringify(imagesData, null, 4);
+                fs.writeFile(dataFilePath, contentNew, 'utf8', function (err) {
+                    if (err) {
+                        throw err;
+                    }
+                    return res.status(200).send(contentNew);
+                }); 
+            });
+        } else {
+            return res.status(200).send();
+        }
+    });
 });
 
 router.put('/images', function(req, res, next) {

@@ -50,6 +50,12 @@ class Gallery extends React.Component {
         fetch(`/services/images/${imageItem.key}`, {
             method: 'delete',
         })
+        .then(response => {
+            return response.json();
+        })
+        .then(json => {
+            this.setState({imagesData: json});
+        })
         .catch((error) => {
             // AHHHH! An Error!
             console.log(error);
