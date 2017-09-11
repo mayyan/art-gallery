@@ -1,4 +1,4 @@
-# myapp
+# art-gallery
 Art Gallery - An experimental Node.js/React.js web application.
 
 I'm using it to practice a few things I'm learnings.
@@ -19,13 +19,13 @@ I'm using it to practice a few things I'm learnings.
 1. [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of $.ajax
 
 ## Install dependencies
-    $ cd myapp && npm install
+    $ cd art-gallery && npm install
 
 ## Build
     $ npm run build
 
 ## Run the app
-    $ DEBUG=myapp:* npm start
+    $ DEBUG=art-gallery:* npm start
 Open browser url: http://localhost:3000/
 
 ## Watch
@@ -56,5 +56,5 @@ Follow step in [Paul Irish's blog](https://medium.com/@paul_irish/debugging-node
     
 ## Debug Client-side
 Sourcemap is enabled in webpack by `devtool: 'inline-source-map'`.
-<img src="https://raw.githubusercontent.com/mayyan/myapp/master/src/images/debugging_client_side.png" width=430>
+<img src="https://raw.githubusercontent.com/mayyan/art-gallery/master/src/images/debugging_client_side.png" width=430>
 
