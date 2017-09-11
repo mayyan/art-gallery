@@ -9,6 +9,7 @@ import ModeEditIcon from 'material-ui-icons/ModeEdit';
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {authorized: true};
         this.handleDeleteButtonClicked = this.handleDeleteButtonClicked.bind(this);
     }
 
@@ -46,15 +47,18 @@ class Gallery extends React.Component {
         if (!confirm(`Are you sure to delete ${imageItem.key}?`)) {
             return;
         }
-        
+
         fetch(`/services/images/${imageItem.key}`, {
             method: 'delete',
+            credentials: 'same-origin'
         })
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(json => {
-            this.setState({imagesData: json});
+            if (json.msg !== 'not authorized') {
+                this.setState({authorized: true, imagesData: json});
+            } else {
+                this.setState({authorized: false});
+            }
         })
         .catch((error) => {
             // AHHHH! An Error!
@@ -63,7 +67,7 @@ class Gallery extends React.Component {
     }
 
     render() {
-        if (!this.state) {
+        if (!this.state.imagesData) {
             return (
                 <div>
                     loading...
@@ -74,10 +78,13 @@ class Gallery extends React.Component {
         let imageItems = this.state.imagesData.map((imageItem, index) =>
             <div className="grid-item" key={imageItem.key} >
                 <img src={imageItem.imagePath} />
+
+                {this.state.authorized &&
                 <div className='action-panel'>
                     <button className='btn-delete' onClick={(e) => this.handleDeleteButtonClicked(e, imageItem)}><DeleteIcon /></button>
                     <button className='btn-edit'><ModeEditIcon /></button>
                 </div>
+                }
             </div>
         );
 

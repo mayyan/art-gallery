@@ -1,18 +1,20 @@
 var express = require('express');
 var router = express.Router();
 const fileUpload = require('express-fileupload');
+const basicAuth = require('express-basic-auth');
 const fs = require('fs');
 const path = require('path');
 const dataFilePath = path.join(__dirname, '..', 'data', 'images.data.js');
-
-/* apply fileUpload middleware ONLY to image POST request */
-router.use('/images', function(req, res, next) {
-    if (req.method == 'POST') {
-        (fileUpload()(req, res, next));
-    } else {
-        next();
+const basicAuthOption = {
+    users: {
+        'admin': '0bscur1ty'
+    },
+    challenge: true,
+    realm: 'Administrator',
+    unauthorizedResponse: function(req) {
+        return {msg: 'not authorized'}
     }
-});
+}
 
 /* GET image listing. */
 router.get('/images', function(req, res, next) {
@@ -28,7 +30,7 @@ router.get('/images', function(req, res, next) {
 });
 
 /* Add new image. */
-router.post('/images', function(req, res, next) {
+router.post('/images', fileUpload(), function(req, res, next) {
 
     if (!req.files) {
         return res.status(400).send({msg: 'No files were uploaded.'});
@@ -74,7 +76,7 @@ router.post('/images', function(req, res, next) {
 });
 
 /* Delete an image */
-router.delete('/images/:key', function(req, res, next) {
+router.delete('/images/:key', basicAuth(basicAuthOption), function(req, res, next) {
     var key = req.params.key;
 
     res.setHeader('Content-Type', 'application/json');
