@@ -4,13 +4,20 @@ import React from 'react';
 import mui from 'material-ui';
 import DeleteIcon from 'material-ui-icons/Delete';
 import ModeEditIcon from 'material-ui-icons/ModeEdit';
+import FileEditor from '../FileEditor';
 
 
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {authorized: true};
+        this.state = {
+            authorized: true,
+            fileEditorModalIsOpen: false,
+            imageDataInEditing: null
+        };
         this.handleDeleteButtonClicked = this.handleDeleteButtonClicked.bind(this);
+        this.handleEditButtonClicked = this.handleEditButtonClicked.bind(this);
+        this.toggleFileEditorModal = this.toggleFileEditorModal.bind(this);
     }
 
     componentDidMount() {
@@ -66,6 +73,17 @@ class Gallery extends React.Component {
         });
     }
 
+    handleEditButtonClicked(e, imageItem) {
+        this.toggleFileEditorModal(imageItem);
+    }
+
+    toggleFileEditorModal(imageItem) {
+        this.setState({
+            fileEditorModalIsOpen: !this.state.fileEditorModalIsOpen,
+            imageDataInEditing: imageItem
+        });
+    }
+
     render() {
         if (!this.state.imagesData) {
             return (
@@ -82,9 +100,10 @@ class Gallery extends React.Component {
                 {this.state.authorized &&
                 <div className='action-panel'>
                     <button className='btn-delete' onClick={(e) => this.handleDeleteButtonClicked(e, imageItem)}><DeleteIcon /></button>
-                    <button className='btn-edit'><ModeEditIcon /></button>
+                    <button className='btn-edit' onClick={(e) => this.handleEditButtonClicked(e, imageItem)}><ModeEditIcon /></button>
                 </div>
                 }
+
             </div>
         );
 
@@ -95,6 +114,12 @@ class Gallery extends React.Component {
                 <div className="grid">
                     {imageItems}
                 </div>
+
+                <FileEditor 
+                    show={this.state.fileEditorModalIsOpen}
+                    imageData={this.state.imageDataInEditing}
+                    onClose={(e) => this.toggleFileEditorModal(this.state.imageDataInEditing)}>
+                </FileEditor>
             </div>
         );
     }

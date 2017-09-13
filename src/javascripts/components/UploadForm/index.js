@@ -116,7 +116,7 @@ class UploadForm extends React.Component {
                         </select>
                     </div>
 
-                {/* file selector */}
+                    {/* file selector */}
                     <div className="form-group">
                         <label htmlFor="inputFile">File input</label>
                         <input type="file" 
