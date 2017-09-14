@@ -33,7 +33,8 @@ class FileEditor extends React.Component {
 
         this.setState({
             imageData: nextProps.imageData,
-            show: nextProps.show
+            show: nextProps.show,
+            saveStatus: ''
         })
         return true;
     }
@@ -41,13 +42,19 @@ class FileEditor extends React.Component {
     handleDateChange(date) {
         let newImageData = this.state.imageData;
         newImageData.imageDate = date;
-        this.setState({imageData: newImageData});
+        this.setState({
+            imageData: newImageData,
+            saveStatus: ''
+        });
     }
 
     handleCategoryChange(e) {
         let newImageData = this.state.imageData;
-        newImageData.imageCategory = $('#imageCategory').val();
-        this.setState({imageData: newImageData});
+        newImageData.imageCategory = e.target.value;
+        this.setState({
+            imageData: newImageData,
+            saveStatus: ''
+        });
     }
 
     handleSaveButtonClicked(e) {
@@ -138,7 +145,7 @@ class FileEditor extends React.Component {
                         <select className="form-control" 
                                 id="imageCategory" 
                                 name="imageCategory" 
-                                defaultValue={this.state.imageData.imageCategory}
+                                value={this.state.imageData.imageCategory}
                                 onChange={this.handleCategoryChange}>
                             <option value="academic">Academic</option>
                             <option value="animation">Animation</option>

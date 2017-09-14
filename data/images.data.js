@@ -8,13 +8,13 @@
     {
         "key": "IMG_3047.JPG",
         "imagePath": "/images/IMG_3047.JPG",
-        "imageDate": "2016-01-01",
-        "imageCategory": "sketch"
+        "imageDate": "2017-08-02T07:00:00.000Z",
+        "imageCategory": "comic"
     },
     {
         "key": "IMG_2980.JPG",
         "imagePath": "/images/IMG_2980.JPG",
-        "imageDate": "2015-01-27T08:00:00.000Z",
-        "imageCategory": "academic"
+        "imageDate": "2015-01-14T08:00:00.000Z",
+        "imageCategory": "comic"
     }
 ]

@@ -31,7 +31,7 @@ class UploadForm extends React.Component {
 
     handleCategoryChange(e) {
         this.setState({
-            imageCategory: $('#imageCategory').val()
+            imageCategory: e.target.value
         });
     }
 

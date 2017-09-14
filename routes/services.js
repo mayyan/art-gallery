@@ -116,6 +116,7 @@ router.delete('/images/:key', basicAuth(basicAuthOption), function(req, res, nex
     });
 });
 
+/* Save the edits of image date, category */
 router.put('/images/:key', basicAuth(basicAuthOption), function(req, res, next) {
     var key = req.params.key;
 

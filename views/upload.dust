@@ -14,7 +14,7 @@
         <!-- Bootstrap core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- CSS are loaded by index_bundle.js via webpack module-->
+        <!-- CSS are loaded by upload_bundle.js via webpack module-->
     </head>
 
     <body>
