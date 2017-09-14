@@ -111,13 +111,43 @@ router.delete('/images/:key', basicAuth(basicAuthOption), function(req, res, nex
                 }); 
             });
         } else {
-            return res.status(200).send();
+            return res.status(404).send({msg: 'Image not found!'});
         }
     });
 });
 
-router.put('/images', function(req, res, next) {
+router.put('/images/:key', basicAuth(basicAuthOption), function(req, res, next) {
+    var key = req.params.key;
 
+    res.setHeader('Content-Type', 'application/json');
+
+    var needToEdit = function(item) {
+        return item.key == key; 
+    }
+
+    fs.readFile(dataFilePath, 'utf8', (err, content) => {
+        if (err) {
+            throw err;
+        }
+        let imagesData = JSON.parse(content);
+        let indexToBeEdited = imagesData.findIndex(needToEdit)
+
+        if (indexToBeEdited >= 0) {
+            // update imagesData 
+            imagesData[indexToBeEdited] = req.body; 
+
+            // update data file
+            let contentNew = JSON.stringify(imagesData, null, 4);
+            fs.writeFile(dataFilePath, contentNew, 'utf8', function (err) {
+                if (err) {
+                    throw err;
+                }
+                return res.status(200).send(contentNew);
+            });
+        } else {
+            return res.status(404).send({msg: 'Image not found!'});
+        }
+    });
 });
 
 module.exports = router;

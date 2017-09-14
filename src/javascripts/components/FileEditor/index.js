@@ -11,10 +11,12 @@ class FileEditor extends React.Component {
         super(props);
         this.state = {
             imageData: null,
-            show: false
+            show: false,
+            saveStatus: ''
         };
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
+        this.handleSaveButtonClicked = this.handleSaveButtonClicked.bind(this);
     }
 
     componentDidMount() {
@@ -37,18 +39,40 @@ class FileEditor extends React.Component {
     }
 
     handleDateChange(date) {
-        this.setState({
-            imageData: {
-                imageDate: date
-            }
-        });
+        let newImageData = this.state.imageData;
+        newImageData.imageDate = date;
+        this.setState({imageData: newImageData});
     }
 
     handleCategoryChange(e) {
-        this.setState({
-            imageData: {
-                imageCategory: $('#imageCategory').val()
+        let newImageData = this.state.imageData;
+        newImageData.imageCategory = $('#imageCategory').val();
+        this.setState({imageData: newImageData});
+    }
+
+    handleSaveButtonClicked(e) {
+        fetch(`/services/images/${this.state.imageData.key}`, {
+            method: 'put',
+            credentials: 'same-origin',  
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify(this.state.imageData)
+        })
+        .then(response => response.json())
+        .then(json => {
+            if (json.msg) {
+                this.setState({
+                    saveStatus: json.msg
+                });
+            } else {
+                this.setState({saveStatus: 'Successfully saved.', imagesData: json});
             }
+        })
+        .catch((error) => {
+            // AHHHH! An Error!
+            console.log(error);
         });
     }
 
@@ -132,7 +156,14 @@ class FileEditor extends React.Component {
                 <div style={modalStyle}>
                     {formBody}
 
+                    {this.state.saveStatus != '' &&
+                    <div id="saveStatus">{this.state.saveStatus}</div>
+                    }
+
                     <div className="footer">
+                        <button onClick={this.handleSaveButtonClicked}>
+                            Save
+                        </button>
                         <button onClick={this.props.onClose}>
                             Close
                         </button>

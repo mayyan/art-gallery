@@ -14,7 +14,7 @@
     {
         "key": "IMG_2980.JPG",
         "imagePath": "/images/IMG_2980.JPG",
-        "imageDate": "2015-01-01",
-        "imageCategory": "comic"
+        "imageDate": "2015-01-27T08:00:00.000Z",
+        "imageCategory": "academic"
     }
 ]

@@ -16,7 +16,7 @@ I'm using it to practice a few things I'm learnings.
 1. [Masonry](https://masonry.desandro.com/) layout
 1. [Material Icon](https://material.io/icons/)
 1. [Basic Authentication](https://www.npmjs.com/package/express-basic-auth) for administrative interactions: upload, remove
-1. [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of $.ajax
+1. [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) instead of $.ajax. GET, POST, PUT, DELETE.
 
 ## Install dependencies
     $ cd art-gallery && npm install
