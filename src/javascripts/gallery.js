@@ -11,7 +11,7 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
     <Gallery name="May" />,
-    document.getElementById('root')
+    document.getElementById('gallery-root')
 );
 
 // Bootstrap IE10 viewport hack for Surface/desktop Windows 8 bug
